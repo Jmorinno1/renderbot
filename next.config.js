@@ -12,7 +12,16 @@ const nextConfig = {
       ...config.resolve.alias,
       '@': __dirname,
     };
+    config.resolve.fallback = {
+      ...config.resolve.fallback,
+      _http_common: false,
+    };
     return config;
+  },
+  experimental: {
+    serverActions: {
+      allowedOrigins: ['renderbot-bbpf.onrender.com'],
+    },
   },
 };
 
